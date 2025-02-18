@@ -1,0 +1,40 @@
+/* [project]/src/app/styles/Roadmap.module.css [app-client] (css) */
+.Roadmap-module__UVmZea__roadmap-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.Roadmap-module__UVmZea__roadmap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  width: 80%;
+}
+
+.Roadmap-module__UVmZea__lesson-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color .3s;
+}
+
+.Roadmap-module__UVmZea__lesson-circle.Roadmap-module__UVmZea__completed {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.Roadmap-module__UVmZea__avatar {
+  position: absolute;
+  left: 0;
+  font-size: 24px;
+}
+
+
+/*# sourceMappingURL=src_app_styles_Roadmap_module_e86202.css.map*/

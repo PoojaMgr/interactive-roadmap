@@ -1,0 +1,32 @@
+<svg width="300" height="600" viewBox="0 0 300 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Define Neon Gradient -->
+  <defs>
+    <linearGradient id="neonGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF416C" />
+      <stop offset="50%" stop-color="#7E51FF" />
+      <stop offset="100%" stop-color="#2B65F9" />
+    </linearGradient>
+
+    <!-- Glow Effect -->
+    <filter id="neonGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="0" stdDeviation="5" flood-color="#FF416C"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="10" flood-color="#7E51FF"/>
+    </filter>
+  </defs>
+
+  <!-- Neon Zigzag Path -->
+  <path d="M50 100 L150 50 L250 150 L150 250 L250 350 L150 450"
+        stroke="url(#neonGradient)"
+        stroke-width="6"
+        fill="none"
+        stroke-linecap="round"
+        filter="url(#neonGlow)"/>
+
+  <!-- Roadmap Circles (Nodes) -->
+  <circle cx="50" cy="100" r="10" fill="black" stroke="white" stroke-width="3"/>
+  <circle cx="150" cy="50" r="10" fill="black" stroke="white" stroke-width="3"/>
+  <circle cx="250" cy="150" r="10" fill="black" stroke="white" stroke-width="3"/>
+  <circle cx="150" cy="250" r="10" fill="black" stroke="white" stroke-width="3"/>
+  <circle cx="250" cy="350" r="10" fill="black" stroke="white" stroke-width="3"/>
+  <circle cx="150" cy="450" r="10" fill="black" stroke="white" stroke-width="3"/>
+</svg>
