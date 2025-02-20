@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import { motion } from "motion/react"; // Import Motion One
 import "react-toastify/dist/ReactToastify.css";
-import { default as styles } from "../styles/Roadmap.module.css";
 
 const Roadmap = () => {
   const [progress, setProgress] = useState(0);
@@ -49,9 +48,9 @@ const Roadmap = () => {
   ];
 
   return (
-    <div className={styles.roadmapContainer}>
+    <div>
       <ToastContainer />
-      <div className={styles.roadmap}>
+      <div>
         <svg
           width="300"
           height="700"

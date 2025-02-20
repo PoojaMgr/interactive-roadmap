@@ -22,17 +22,21 @@ var _s = __turbopack_refresh__.signature();
 const Roadmap = ()=>{
     _s();
     const [progress, setProgress] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(0);
-    // Handle lesson click (Toast + Progress Update)
-    const handleLessonClick = (lessonIndex)=>{
-        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$toastify$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["toast"].info(`Navigating to Lesson ${lessonIndex + 1}`, {
-            position: "top-center"
+    const handleLessonClick = (lessonIndex, lesson)=>{
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$toastify$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["toast"].info(`Navigating to ${lesson.title}`, {
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light"
         });
-        setProgress(lessonIndex + 1); // update progress when a lesson is clicked
-        localStorage.setItem("lessonProgress", lessonIndex + 1); // store progress in localStorage
+        setProgress(lessonIndex + 1);
+        localStorage.setItem("lessonProgress", lessonIndex + 1);
     };
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "Roadmap.useEffect": ()=>{
-            // Retrieve progress from localStorage when the component mounts
             const savedProgress = localStorage.getItem("lessonProgress");
             if (savedProgress) {
                 setProgress(parseInt(savedProgress));
@@ -42,42 +46,66 @@ const Roadmap = ()=>{
     const lessons = [
         {
             id: 1,
-            title: "Lesson 1"
+            title: "Introduction to Python"
         },
         {
             id: 2,
-            title: "Lesson 2"
+            title: "Installing Python"
         },
         {
             id: 3,
-            title: "Lesson 3"
+            title: "Data Types in Python"
         },
         {
             id: 4,
-            title: "Lesson 4"
+            title: "Operators in Python"
         },
         {
             id: 5,
-            title: "Lesson 5"
+            title: "Input and Output"
         },
         {
             id: 6,
-            title: "Lesson 6"
+            title: "Python Control Statements"
+        }
+    ];
+    const circlePositions = [
+        {
+            cx: 150,
+            cy: 150
+        },
+        {
+            cx: 250,
+            cy: 250
+        },
+        {
+            cx: 150,
+            cy: 350
+        },
+        {
+            cx: 250,
+            cy: 450
+        },
+        {
+            cx: 150,
+            cy: 550
+        },
+        {
+            cx: 50,
+            cy: 500
         }
     ];
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "roadmap-container",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$toastify$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ToastContainer"], {}, void 0, false, {
                 fileName: "[project]/src/app/components/Roadmap.js",
-                lineNumber: 39,
+                lineNumber: 52,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "roadmap",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
                     width: "300",
-                    height: "600",
+                    height: "700",
                     viewBox: "0 0 300 600",
                     xmlns: "http://www.w3.org/2000/svg",
                     children: [
@@ -92,32 +120,32 @@ const Roadmap = ()=>{
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("stop", {
                                             offset: "0%",
-                                            "stop-color": "#FF416C"
+                                            stopColor: "#FF416C"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/components/Roadmap.js",
-                                            lineNumber: 55,
+                                            lineNumber: 68,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("stop", {
                                             offset: "50%",
-                                            "stop-color": "#7E51FF"
+                                            stopColor: "#7E51FF"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/components/Roadmap.js",
-                                            lineNumber: 56,
+                                            lineNumber: 69,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("stop", {
                                             offset: "100%",
-                                            "stop-color": "#2B65F9"
+                                            stopColor: "#2B65F9"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/components/Roadmap.js",
-                                            lineNumber: 57,
+                                            lineNumber: 70,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/components/Roadmap.js",
-                                    lineNumber: 48,
+                                    lineNumber: 61,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("filter", {
@@ -131,47 +159,46 @@ const Roadmap = ()=>{
                                             dx: "0",
                                             dy: "0",
                                             stdDeviation: "5",
-                                            "flood-color": "#FF416C"
+                                            floodColor: "#FF416C"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/components/Roadmap.js",
-                                            lineNumber: 61,
+                                            lineNumber: 74,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("feDropShadow", {
                                             dx: "0",
                                             dy: "0",
                                             stdDeviation: "10",
-                                            "flood-color": "#7E51FF"
+                                            floodColor: "#7E51FF"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/components/Roadmap.js",
-                                            lineNumber: 67,
+                                            lineNumber: 80,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/components/Roadmap.js",
-                                    lineNumber: 60,
+                                    lineNumber: 73,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/components/Roadmap.js",
-                            lineNumber: 47,
+                            lineNumber: 60,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$motion$2f$dist$2f$es$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].path, {
-                            d: "M50 100 L150 50 L250 150 L150 250 L250 350 L150 450",
-                            stroke: "url(#neonGradient)",
-                            "stroke-width": "6",
+                            d: "M50 500 L150 550 L250 450 L150 350 L250 250 L150 150",
+                            stroke: "#383338",
+                            strokeWidth: "2",
                             fill: "none",
-                            "stroke-linecap": "round",
-                            filter: "url(#neonGlow)",
+                            // strokeLinecap="round"
                             initial: {
                                 strokeDasharray: 0,
                                 strokeDashoffset: 50
                             },
                             animate: {
-                                strokeDasharray: progress > 0 ? "50, 50" : "0, 50",
+                                strokeDasharray: progress > 0 ? "0, 0" : "0, 50",
                                 strokeDashoffset: progress > 0 ? 0 : 50
                             },
                             transition: {
@@ -179,47 +206,84 @@ const Roadmap = ()=>{
                             }
                         }, void 0, false, {
                             fileName: "[project]/src/app/components/Roadmap.js",
-                            lineNumber: 77,
+                            lineNumber: 89,
                             columnNumber: 11
                         }, this),
-                        lessons.map((lesson, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$motion$2f$dist$2f$es$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].circle, {
-                                cx: 50 + index * 50,
-                                cy: 100 + index * 100,
-                                r: "10",
-                                fill: index < progress ? "#7E51FF" : "#FF416C",
-                                stroke: "white",
-                                "stroke-width": "3",
-                                onClick: ()=>handleLessonClick(index),
-                                "aria-label": `Go to ${lesson.title}`,
-                                initial: {
-                                    scale: 1
-                                },
-                                animate: {
-                                    scale: index < progress ? 1.2 : 1
-                                },
-                                transition: {
-                                    duration: 0.3
-                                }
-                            }, lesson.id, false, {
+                        lessons.map((lesson, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("g", {
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$motion$2f$dist$2f$es$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].circle, {
+                                        cx: circlePositions[index].cx,
+                                        cy: circlePositions[index].cy,
+                                        r: "20",
+                                        fill: index < progress ? "#7E51FF" : "#232328",
+                                        stroke: index < progress ? "white" : "#3c373c",
+                                        strokeWidth: "4",
+                                        onClick: ()=>handleLessonClick(index, lesson),
+                                        "aria-label": `Go to ${lesson.title}`,
+                                        initial: {
+                                            scale: 1
+                                        },
+                                        animate: {
+                                            scale: index < progress ? 1.2 : 1
+                                        },
+                                        transition: {
+                                            duration: 0.3
+                                        }
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/components/Roadmap.js",
+                                        lineNumber: 105,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$motion$2f$dist$2f$es$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].text, {
+                                        x: circlePositions[index].cx,
+                                        y: circlePositions[index].cy + 40,
+                                        fontSize: "14",
+                                        fill: "white",
+                                        textAnchor: "middle",
+                                        initial: {
+                                            opacity: 0
+                                        },
+                                        animate: {
+                                            opacity: 1
+                                        },
+                                        transition: {
+                                            duration: 0.3
+                                        },
+                                        children: lesson.title.split(" ").map((word, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tspan", {
+                                                x: circlePositions[index].cx,
+                                                dy: i === 0 ? 0 : 16,
+                                                children: word
+                                            }, i, false, {
+                                                fileName: "[project]/src/app/components/Roadmap.js",
+                                                lineNumber: 129,
+                                                columnNumber: 19
+                                            }, this))
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/components/Roadmap.js",
+                                        lineNumber: 118,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, lesson.id, true, {
                                 fileName: "[project]/src/app/components/Roadmap.js",
-                                lineNumber: 94,
+                                lineNumber: 104,
                                 columnNumber: 13
                             }, this))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/components/Roadmap.js",
-                    lineNumber: 41,
+                    lineNumber: 54,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/components/Roadmap.js",
-                lineNumber: 40,
+                lineNumber: 53,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/components/Roadmap.js",
-        lineNumber: 38,
+        lineNumber: 51,
         columnNumber: 5
     }, this);
 };

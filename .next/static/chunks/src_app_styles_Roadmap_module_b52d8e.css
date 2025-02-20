@@ -1,9 +1,8 @@
 /* [project]/src/app/styles/Roadmap.module.css [app-client] (css) */
 .Roadmap-module__UVmZea__roadmap {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: #140f14;
+  color: #fff;
+  text-align: center;
 }
 
 /*# sourceMappingURL=src_app_styles_Roadmap_module_b52d8e.css.map*/

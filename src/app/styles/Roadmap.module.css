@@ -1,6 +1,5 @@
 .roadmap {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: #140f14;
+  color: white;
+  text-align: center;
 }
