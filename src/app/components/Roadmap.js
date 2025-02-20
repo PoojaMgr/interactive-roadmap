@@ -8,19 +8,22 @@ import { default as styles } from "../styles/Roadmap.module.css";
 
 const Roadmap = () => {
   const [progress, setProgress] = useState(0);
-  const [neonLines, setNeonLines] = useState(new Set()); // Initialize neonLines state as a Set to track clicked lines
 
-  // Handle lesson click (Toast + Progress Update)
-  const handleLessonClick = (lessonIndex) => {
-    toast.info(`Navigating to Lesson ${lessonIndex + 1}`, {
-      position: "top-center",
+  const handleLessonClick = (lessonIndex, lesson) => {
+    toast.info(`Navigating to ${lesson.title}`, {
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
     });
-    setProgress(lessonIndex + 1); // update progress when a lesson is clicked
-    localStorage.setItem("lessonProgress", lessonIndex + 1); // store progress in localStorage
+    setProgress(lessonIndex + 1);
+    localStorage.setItem("lessonProgress", lessonIndex + 1);
   };
 
   useEffect(() => {
-    // Retrieve progress from localStorage when the component mounts
     const savedProgress = localStorage.getItem("lessonProgress");
     if (savedProgress) {
       setProgress(parseInt(savedProgress));
@@ -28,22 +31,21 @@ const Roadmap = () => {
   }, []);
 
   const lessons = [
-    { id: 1, title: "Lesson 1" },
-    { id: 2, title: "Lesson 2" },
-    { id: 3, title: "Lesson 3" },
-    { id: 4, title: "Lesson 4" },
-    { id: 5, title: "Lesson 5" },
-    { id: 6, title: "Lesson 6" },
+    { id: 1, title: "Introduction to Python" },
+    { id: 2, title: "Installing Python" },
+    { id: 3, title: "Data Types in Python" },
+    { id: 4, title: "Operators in Python" },
+    { id: 5, title: "Input and Output" },
+    { id: 6, title: "Python Control Statements" },
   ];
 
-  // Circle positions based on the updated inverted path
   const circlePositions = [
-    { cx: 50, cy: 500 },
-    { cx: 150, cy: 550 },
-    { cx: 250, cy: 450 },
-    { cx: 150, cy: 350 },
-    { cx: 250, cy: 250 },
     { cx: 150, cy: 150 },
+    { cx: 250, cy: 250 },
+    { cx: 150, cy: 350 },
+    { cx: 250, cy: 450 },
+    { cx: 150, cy: 550 },
+    { cx: 50, cy: 500 },
   ];
 
   return (
@@ -52,7 +54,7 @@ const Roadmap = () => {
       <div className={styles.roadmap}>
         <svg
           width="300"
-          height="600"
+          height="700"
           viewBox="0 0 300 600"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -85,14 +87,12 @@ const Roadmap = () => {
             </filter>
           </defs>
 
-          {/* Neon Zigzag Path rotated 180 degrees */}
           <motion.path
             d="M50 500 L150 550 L250 450 L150 350 L250 250 L150 150"
-            stroke="url(#neonGradient)"
-            strokeWidth="6"
+            stroke="#383338"
+            strokeWidth="2"
             fill="none"
-            strokeLinecap="round"
-            filter={neonLines.size > 0 ? "url(#neonGlow)" : "none"} // Apply glow if any line clicked
+            // strokeLinecap="round"
             initial={{ strokeDasharray: 0, strokeDashoffset: 50 }}
             animate={{
               strokeDasharray: progress > 0 ? "0, 0" : "0, 50",
@@ -101,17 +101,16 @@ const Roadmap = () => {
             transition={{ duration: 0.5 }}
           />
 
-          {/* Roadmap Circles (Nodes) */}
           {lessons.map((lesson, index) => (
             <g key={lesson.id}>
               <motion.circle
                 cx={circlePositions[index].cx}
                 cy={circlePositions[index].cy}
                 r="20"
-                fill={index < progress ? "#7E51FF" : "#FF416C"}
-                stroke="white"
-                strokeWidth="3"
-                onClick={() => handleLessonClick(index)}
+                fill={index < progress ? "#7E51FF" : "#232328"}
+                stroke={index < progress ? "white" : "#3c373c"}
+                strokeWidth="4"
+                onClick={() => handleLessonClick(index, lesson)}
                 aria-label={`Go to ${lesson.title}`}
                 initial={{ scale: 1 }}
                 animate={{ scale: index < progress ? 1.2 : 1 }}
@@ -119,7 +118,7 @@ const Roadmap = () => {
               />
               <motion.text
                 x={circlePositions[index].cx}
-                y={circlePositions[index].cy + 20} // Positioning the text below the circle
+                y={circlePositions[index].cy + 40}
                 fontSize="14"
                 fill="white"
                 textAnchor="middle"
@@ -127,7 +126,15 @@ const Roadmap = () => {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.3 }}
               >
-                {lesson.title}
+                {lesson.title.split(" ").map((word, i) => (
+                  <tspan
+                    key={i}
+                    x={circlePositions[index].cx}
+                    dy={i === 0 ? 0 : 16}
+                  >
+                    {word}
+                  </tspan>
+                ))}
               </motion.text>
             </g>
           ))}

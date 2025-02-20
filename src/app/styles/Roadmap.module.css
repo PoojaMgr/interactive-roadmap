@@ -1,17 +1,6 @@
-.roadmap-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100vh;
-  }
-  
-  .roadmap {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    /* max-width: 600px;
-    margin-top: 20px; */
-    background-color: #140f14;
-  }
+.roadmap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #140f14;
+}

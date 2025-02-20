@@ -1,17 +1,8 @@
 /* [project]/src/app/styles/Roadmap.module.css [app-client] (css) */
-.Roadmap-module__UVmZea__roadmap-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height: 100vh;
-}
-
 .Roadmap-module__UVmZea__roadmap {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
   background-color: #140f14;
 }
 
